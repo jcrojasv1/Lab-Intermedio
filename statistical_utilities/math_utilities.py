@@ -30,3 +30,28 @@ def error_propagation(vars_,expr,vars_data,uncer_vars):
         """
         print("No implementado aún.")
         return  None
+
+def VerifyMax(x:list,y:list) :
+    """
+    La función tiene como entrada dos listas con los valores de espectro de una estrella y retorna una lista de tuplas,
+    siendo estas las posiciones de los puntos máximos.
+
+    Args:
+        x (list): Valores de espectro
+        y (list): Valores de intensidad
+
+    Returns:
+        list: Lista de tuplas con los máximos locales de los datos.
+    """
+    
+    xmax_points = []
+    ymax_points = []
+    
+    for i in range(2, len(x)-1):
+        left_handed_slope = (y[i]-y[i-1])/(x[i] - x[i-1])
+        right_handed_slope = (y[i+1]-y[i])/(x[i+1] - x[i])
+        if right_handed_slope < 0 and left_handed_slope > 0:
+            xmax_points.append(x[i])
+            ymax_points.append(y[i])
+        
+    return xmax_points, ymax_points
