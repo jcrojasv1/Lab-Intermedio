@@ -11,8 +11,7 @@ def linear_w_regression(x_data: np.array,y_data: np.array,sigma_x:np.array,sigma
     uncer_m = np.sqrt(np.sum(w)/delta)
     uncer_b = np.sqrt(np.sum(w*x_data**2)/delta)
     
-    print(r"m: %s"%(m) + " uncertanty m: %s"%(uncer_m))
-    print(r"b: %s"%(b) + " uncertanty b: %s"%(uncer_b))
+
     return np.array([m,uncer_m,b,uncer_b])
 
 def error_propagation(vars_,expr,vars_data,uncer_vars):
